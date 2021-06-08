@@ -8,6 +8,7 @@ public class EatEnjoyApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(EatEnjoyApplication.class, args);
+		System.out.println("asdasdasd");
 	}
 
 }
