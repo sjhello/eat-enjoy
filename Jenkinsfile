@@ -5,10 +5,6 @@ pipeline {
 //         PATH = "/usr/lib/gradle/bin:$PATH"
 //     }
 
-    tools {
-        gradle 'Gradle 6.7.1'
-    }
-
     stages {
 
         stage('Git Checkout') {
@@ -27,7 +23,7 @@ pipeline {
         stage('Test') {
             steps {
                 // sh 'gradle test'
-                sh 'gradlew test'
+                sh 'gradlew surefire:test'
                 junit '**/build/test-results/test/*.xml'
             }
         }
