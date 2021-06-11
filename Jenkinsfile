@@ -1,10 +1,9 @@
 pipeline {
     agent any
 
-    environment {
-        PATH = "/usr/lib/gradle/bin:$PATH"
-        // PATH = "/opt/gradle/gradle-6.6.1/bin:$PATH"
-    }
+//     environment {
+//         PATH = "/usr/lib/gradle/bin:$PATH"
+//     }
 
     stages {
 
