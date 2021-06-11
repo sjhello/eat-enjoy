@@ -11,6 +11,7 @@ pipeline {
         stage('Git Checkout') {
             steps {
                 checkout scm
+                slackSend (channel: SLACK_CHANNEL, color: '#00FF00', message: "START: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
             }
         }
 
@@ -31,12 +32,13 @@ pipeline {
     }
 
      post {
+
         success {
-             slackSend (channel: SLACK_CHANNEL, color: '#00FF00', message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
-             }
+            slackSend (channel: SLACK_CHANNEL, color: '#00FF00', message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+         }
 
         failure {
              slackSend (channel: SLACK_CHANNEL, color: '#F01717', message: "FAILURE: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
-             }
+         }
       }
 }
