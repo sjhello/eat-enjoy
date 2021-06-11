@@ -1,9 +1,9 @@
 pipeline {
     agent any
 
-//     environment {
-//         PATH = "/usr/lib/gradle/bin:$PATH"
-//     }
+    environment {
+        PATH = "/usr/lib/gradle/bin:$PATH"
+    }
 
     stages {
 
@@ -16,8 +16,15 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'gradle clean build'
+                sh 'gradle clean build --exclude-task test'
                 echo 'Build success'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                sh 'gradle test'
+                echo 'test success'
             }
         }
     }
