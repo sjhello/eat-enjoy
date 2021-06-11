@@ -10,21 +10,21 @@ pipeline {
         stage('Git Checkout') {
             steps {
                 checkout scm
-                echo 'checkout success'
             }
         }
 
         stage('Build') {
             steps {
-                sh 'gradle clean build --exclude-task test'
-                echo 'Build success'
+                // sh 'gradle clean build --exclude-task test'
+                sh './gradlew clean build --exclude-task test'
             }
         }
 
         stage('Test') {
             steps {
-                sh 'gradle test'
-                echo 'test success'
+                // sh 'gradle test'
+                sh './gradlew test'
+                junit '**/build/test-results/test/*.xml'
             }
         }
     }
