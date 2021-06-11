@@ -20,14 +20,14 @@ pipeline {
         stage('Build') {
             steps {
                 // sh 'gradle clean build --exclude-task test'
-                sh './gradlew clean build --exclude-task test'
+                sh 'gradlew clean build --exclude-task test'
             }
         }
 
         stage('Test') {
             steps {
                 // sh 'gradle test'
-                sh './gradlew test'
+                sh 'gradlew test'
                 junit '**/build/test-results/test/*.xml'
             }
         }
