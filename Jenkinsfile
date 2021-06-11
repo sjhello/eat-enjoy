@@ -1,8 +1,12 @@
 pipeline {
     agent any
 
-    environment {
-        PATH = "/usr/lib/gradle/bin:$PATH"
+//     environment {
+//         PATH = "/usr/lib/gradle/bin:$PATH"
+//     }
+
+    tools {
+        gradle 'Gradle 6.7.1'
     }
 
     stages {
@@ -15,15 +19,15 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'gradle clean build --exclude-task test'
-                // sh 'gradlew clean build --exclude-task test'
+                // sh 'gradle clean build --exclude-task test'
+                sh 'gradlew clean build -DskipTests=true'
             }
         }
 
         stage('Test') {
             steps {
-                sh 'gradle test'
-                // sh 'gradlew surefire:test'
+                // sh 'gradle test'
+                sh 'gradlew surefile:test'
                 junit '**/build/test-results/test/*.xml'
             }
         }
