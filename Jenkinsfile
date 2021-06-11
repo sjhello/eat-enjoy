@@ -7,9 +7,18 @@ pipeline {
     }
 
     stages {
+
+        stage('Git Checkout') {
+            steps {
+                checkout scm
+                echo 'checkout success'
+            }
+        }
+
         stage('Build') {
             steps {
-                echo 'building!!'
+                sh 'gradle clean build'
+                echo 'Build success'
             }
         }
     }
