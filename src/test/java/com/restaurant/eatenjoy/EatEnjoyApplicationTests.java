@@ -8,7 +8,7 @@ class EatEnjoyApplicationTests {
 
 	@Test
 	void contextLoads() {
-		// adaasdad
+		System.out.println("qweqweqwe");
 	}
 
 }
