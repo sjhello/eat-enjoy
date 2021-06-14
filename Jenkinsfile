@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         PATH = "/usr/lib/gradle/bin:$PATH"
+        // asdfasdfsadfasfd
     }
 
     stages {
