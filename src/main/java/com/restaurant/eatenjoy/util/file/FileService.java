@@ -1,8 +1,10 @@
 package com.restaurant.eatenjoy.util.file;
 
+import java.util.List;
+
 import org.springframework.web.multipart.MultipartFile;
 
-import com.restaurant.eatenjoy.dto.FileDto;
+import com.restaurant.eatenjoy.dto.file.FileDto;
 
 public interface FileService {
 
@@ -14,4 +16,7 @@ public interface FileService {
 
 	void deleteFileInfo(Long fileId);
 
+	void deleteFiles(List<FileDto> fileDtos);
+
+	void deleteFileInfos(List<FileDto> fileDtos);
 }

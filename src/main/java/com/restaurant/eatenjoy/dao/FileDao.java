@@ -1,6 +1,8 @@
 package com.restaurant.eatenjoy.dao;
 
-import com.restaurant.eatenjoy.dto.FileDto;
+import java.util.List;
+
+import com.restaurant.eatenjoy.dto.file.FileDto;
 
 public interface FileDao {
 
@@ -8,4 +10,5 @@ public interface FileDao {
 
 	void deleteById(Long fileId);
 
+	void deleteByIdIn(List<FileDto> fileDtos);
 }

@@ -1,5 +1,7 @@
 package com.restaurant.eatenjoy.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.TransactionSynchronization;
@@ -7,10 +9,10 @@ import org.springframework.transaction.support.TransactionSynchronizationManager
 import org.springframework.web.multipart.MultipartFile;
 
 import com.restaurant.eatenjoy.dao.MenuDao;
-import com.restaurant.eatenjoy.dto.FileDto;
-import com.restaurant.eatenjoy.dto.MenuDto;
-import com.restaurant.eatenjoy.dto.MenuInfo;
-import com.restaurant.eatenjoy.dto.UpdateMenuDto;
+import com.restaurant.eatenjoy.dto.file.FileDto;
+import com.restaurant.eatenjoy.dto.menu.MenuDto;
+import com.restaurant.eatenjoy.dto.menu.MenuInfo;
+import com.restaurant.eatenjoy.dto.menu.UpdateMenuDto;
 import com.restaurant.eatenjoy.exception.DuplicateValueException;
 import com.restaurant.eatenjoy.util.file.FileExtension;
 import com.restaurant.eatenjoy.util.file.FileService;
@@ -36,6 +38,10 @@ public class MenuService {
 		return menuDao.findById(menuId);
 	}
 
+	public List<MenuInfo> getMenuInfos(Long restaurantId) {
+		return menuDao.findAllByRestaurantId(restaurantId);
+	}
+
 	@Transactional
 	public void update(Long restaurantId, UpdateMenuDto updateMenuDto) {
 		validateMenuName(restaurantId, updateMenuDto.getId(), updateMenuDto.getName(), updateMenuDto.getUploadFile());
@@ -56,6 +62,10 @@ public class MenuService {
 		if (menuInfo.getFile() != null) {
 			deleteFile(menuInfo.getFile());
 		}
+	}
+
+	public void deleteByIdIn(List<MenuInfo> menus) {
+		menuDao.deleteByIdIn(menus);
 	}
 
 	public FileDto uploadImage(MultipartFile photo) {

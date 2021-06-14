@@ -6,6 +6,7 @@ import java.util.Objects;
 import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,12 +20,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.restaurant.eatenjoy.annotation.Authority;
 import com.restaurant.eatenjoy.annotation.LoginAuthId;
-import com.restaurant.eatenjoy.annotation.OwnersRestaurantCheck;
-import com.restaurant.eatenjoy.dto.FileDto;
-import com.restaurant.eatenjoy.dto.RestaurantDto;
-import com.restaurant.eatenjoy.dto.RestaurantInfo;
-import com.restaurant.eatenjoy.dto.RestaurantListDto;
-import com.restaurant.eatenjoy.dto.UpdateRestaurant;
+import com.restaurant.eatenjoy.dto.file.FileDto;
+import com.restaurant.eatenjoy.dto.restaurant.RestaurantDto;
+import com.restaurant.eatenjoy.dto.restaurant.RestaurantInfo;
+import com.restaurant.eatenjoy.dto.restaurant.RestaurantListDto;
+import com.restaurant.eatenjoy.dto.restaurant.UpdateRestaurantDto;
 import com.restaurant.eatenjoy.exception.NotFoundException;
 import com.restaurant.eatenjoy.service.RestaurantService;
 import com.restaurant.eatenjoy.util.security.Role;
@@ -71,7 +71,6 @@ public class RestaurantController {
 	 * @return RestaurantInfo
 	 * */
 	@GetMapping("{restaurantId}")
-	@OwnersRestaurantCheck
 	public RestaurantInfo getRestaurant(@PathVariable Long restaurantId) {
 		return restaurantService.findById(restaurantId);
 	}
@@ -81,8 +80,7 @@ public class RestaurantController {
 	 * @param restaurantId 수정할 레스토랑의 id
 	 * */
 	@PutMapping("{restaurantId}")
-	@OwnersRestaurantCheck
-	public void updateRestaurant(@RequestBody @Valid UpdateRestaurant restaurant) {
+	public void updateRestaurant(@RequestBody @Valid UpdateRestaurantDto restaurant) {
 		restaurantService.updateRestaurant(restaurant);
 	}
 
@@ -94,5 +92,10 @@ public class RestaurantController {
 	@ResponseStatus(HttpStatus.CREATED)
 	public FileDto imageUpload(@RequestPart MultipartFile photo) {
 		return restaurantService.uploadImage(photo);
+	}
+
+	@DeleteMapping("{restaurantId}")
+	public void deleteRestaurant(@PathVariable Long restaurantId){
+		restaurantService.deleteRestaurant(restaurantId);
 	}
 }
