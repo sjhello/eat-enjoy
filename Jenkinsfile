@@ -10,7 +10,6 @@ pipeline {
         stage('Git Checkout') {
             steps {
                 checkout scm
-                // slackSend (channel: SLACK_CHANNEL, color: '#0022ff', message: "START: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
             }
         }
 
