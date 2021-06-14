@@ -5,7 +5,6 @@ class EatEnjoyApplicationTests {
 
 	// @Test
 	void contextLoads() {
-		// asdads
 	}
 
 }
