@@ -2,8 +2,7 @@ pipeline {
     agent any
 
     environment {
-        PATH = "/usr/lib/gradle/bin:$PATH"
-        //
+        PATH = "/usr/lib/gradle/bin:$PATH"  // asdasd
     }
 
     stages {
