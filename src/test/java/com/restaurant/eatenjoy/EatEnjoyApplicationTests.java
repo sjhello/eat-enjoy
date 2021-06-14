@@ -1,11 +1,13 @@
 package com.restaurant.eatenjoy;
 
-// @SpringBootTest(properties = {"jasypt.encryptor.password=enejaoty"})
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest(properties = {"jasypt.encryptor.password=enejaoty"})
 class EatEnjoyApplicationTests {
 
-	// @Test
+	@Test
 	void contextLoads() {
-		// asdads
 	}
 
 }
