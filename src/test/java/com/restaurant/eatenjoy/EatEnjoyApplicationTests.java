@@ -11,7 +11,7 @@ class EatEnjoyApplicationTests {
 	@Test
 	void contextLoads() {
 		System.out.println("feature/38");
-		System.out.println("zxczxczxc");
+		System.out.println("werwerwer1212");
 	}
 
 }
