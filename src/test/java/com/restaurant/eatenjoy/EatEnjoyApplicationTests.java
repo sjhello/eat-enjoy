@@ -6,6 +6,7 @@ class EatEnjoyApplicationTests {
 	// @Test
 	void contextLoads() {
 		System.out.println("feature/39");
+		System.out.println("asdasd");
 	}
 
 }
