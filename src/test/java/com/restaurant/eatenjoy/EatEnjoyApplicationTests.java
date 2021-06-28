@@ -5,7 +5,7 @@ class EatEnjoyApplicationTests {
 
 	// @Test
 	void contextLoads() {
-		System.out.println("feature/50 zxczczxc");
+		System.out.println("feature/50 assdsdsdsd");
 	}
 
 }
