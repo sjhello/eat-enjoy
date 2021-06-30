@@ -20,7 +20,6 @@ pipeline {
         stage('Git Checkout') {
             steps {
                 checkout scm
-                echo 'adsadadasd'
             }
         }
 
