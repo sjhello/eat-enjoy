@@ -11,11 +11,15 @@ pipeline {
             steps([$class: 'BapSshPromotionPublisherPlugin']) {
                 sshPublisher(
                     continueOnError: false, failOnError: true,
-                    configName: "eatenjoy",
-                    verbose: true,
-                    transfers: [
-                        sshTransfer(
-                            execCommand: "hostname >> /usr/local/tomcat/test2/test"
+                    publishers: [
+                        sshPublisherDesc(
+                            configName: "eatenjoy",
+                            verbose: true,
+                            transfers: [
+                                sshTransfer(
+                                    execCommand: "hostname >> /usr/local/tomcat/test2/test"
+                                )
+                            ]
                         )
                     ]
                 )
