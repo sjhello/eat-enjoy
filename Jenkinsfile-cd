@@ -33,9 +33,7 @@ pipeline {
                     verbose: true,
                     transfers: [
                         sshTransfer(
-                            execCommand: "
-                                hostname >> /usr/local/tomcat/test2/test
-                            "
+                            execCommand: "hostname >> /usr/local/tomcat/test2/test"
                         )
                     ]
                 )
