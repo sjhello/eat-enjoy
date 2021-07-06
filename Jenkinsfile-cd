@@ -7,6 +7,12 @@ pipeline {
 
     stages {
 
+        stage('Git Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
         stage('Deploy') {
             steps([$class: 'BapSshPromotionPublisherPlugin']) {
                 sshPublisher(
