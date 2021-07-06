@@ -6,7 +6,7 @@ pipeline {
     }
 
     stages {
-        stage('Git Checkout') {
+        /* stage('Git Checkout') {
             steps {
                 checkout scm
             }
@@ -23,7 +23,7 @@ pipeline {
                 sh 'gradle test'
                 junit '**/build/test-results/test/*.xml'
             }
-        }
+        } */
 
         stage('Deploy') {
             steps([$class: 'BapSshPromotionPublisherPlugin']) {
@@ -33,20 +33,13 @@ pipeline {
                     verbose: true,
                     transfers: [
                         sshTransfer(
-
+                            execCommand: "
+                                hostname >> /usr/local/tomcat/test2/test
+                            "
                         )
                     ]
                 )
             }
-        }
-    }
-
-    post {
-        success {
-            setBuildStatus("Build succeeded", "SUCCESS");
-        }
-        failure {
-            setBuildStatus("Build failed", "FAILURE");
         }
     }
 }
