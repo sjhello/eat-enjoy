@@ -38,8 +38,8 @@ pipeline {
                                 sshTransfer(
                                     sourceFiles: "build/libs/*.jar",
                                     removePrefix: "build/libs",
-                                    remoteDirectory: "/usr/local/tomcat/test2",
-                                    execCommand: "hostname >> /usr/local/tomcat/test2/test"
+                                    remoteDirectory: "/",
+                                    execCommand: "sh /usr/local/script/deploy.sh"
                                 )
                             ]
                         )
