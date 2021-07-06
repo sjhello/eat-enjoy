@@ -36,6 +36,9 @@ pipeline {
                             verbose: true,
                             transfers: [
                                 sshTransfer(
+                                    sourceFiles: "build/libs/*.jar",
+                                    removePrefix: "build/libs",
+                                    remoteDirectory: "/usr/local/tomcat/test2",
                                     execCommand: "hostname >> /usr/local/tomcat/test2/test"
                                 )
                             ]
