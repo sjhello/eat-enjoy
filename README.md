@@ -27,5 +27,8 @@
 - **문서(docs):** 문서를 수정(제품 코드 수정 없음)한 경우 사용합니다.
 - **기타(chore):** 빌드 업무 수정, 패키지 매니저 설정 등 위에 해당되지 않는 모든 변경(제품 코드 수정 없음)일 경우 사용합니다.
 
+## ERD
+<img src="https://user-images.githubusercontent.com/62179707/120497946-cbe53000-c3f9-11eb-970d-db2df915a2df.png">
+
 ## :rice: Wiki
 - 해당 프로젝트의 상세 정보는 [Wiki](https://github.com/f-lab-edu/eat-enjoy/wiki)를 통해 확인할 수 있습니다.
