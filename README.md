@@ -30,5 +30,8 @@
 ## ERD
 <img src="https://user-images.githubusercontent.com/62179707/120497946-cbe53000-c3f9-11eb-970d-db2df915a2df.png">
 
+## Use Case
+- [eat-enjoy Use Case](https://github.com/f-lab-edu/eat-enjoy/wiki/Use-Case)
+
 ## :rice: Wiki
 - 해당 프로젝트의 상세 정보는 [Wiki](https://github.com/f-lab-edu/eat-enjoy/wiki)를 통해 확인할 수 있습니다.
